@@ -1,11 +1,7 @@
 package com.example.myactionbar
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.renderscript.ScriptGroup
-import android.view.Menu
-import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myactionbar.databinding.ActivityMainBinding
 
 class MenuActivity : AppCompatActivity() {
@@ -14,29 +10,5 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.option_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu1 -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, MenuFragment())
-                    .addToBackStack(null)
-                    .commit()
-                true
-            }
-            R.id.menu2 -> {
-                val i = Intent(this, MenuActivity::class.java)
-                startActivity(i)
-                true
-            }
-            else -> true
-        }
     }
 }
